@@ -6,14 +6,16 @@ using static Define;
 
 public class CreatureController : MonoBehaviour
 {
+    [SerializeField]
     public float _speed = 5.0f;
 
     public Vector3Int CellPos { get; set; } = Vector3Int.zero;
     protected Animator _animator;
     protected SpriteRenderer _sprite;
 
+    [SerializeField]
     protected CreatureState _state = CreatureState.Idle;
-    public CreatureState State
+    public virtual CreatureState State
     {
         get { return _state; }
         set
@@ -27,6 +29,7 @@ public class CreatureController : MonoBehaviour
     }
 
     protected MoveDir _lastDir = MoveDir.Down;
+    [SerializeField]
     protected MoveDir _dir = MoveDir.Down;
     public MoveDir Dir
     {
@@ -42,6 +45,20 @@ public class CreatureController : MonoBehaviour
 
             UpdateAnimation();
         }
+    }
+
+    public MoveDir GetDirFromVec(Vector3Int dir)
+    {
+        if (dir.x > 0)
+            return MoveDir.Right;
+        else if (dir.x < 0)
+            return MoveDir.Left;
+        else if (dir.y > 0)
+            return MoveDir.Up;
+        else if (dir.y < 0)
+            return MoveDir.Down;
+        else
+            return MoveDir.None;
     }
 
     //바라보는 방향의 cell위치 알기
@@ -181,41 +198,10 @@ public class CreatureController : MonoBehaviour
 
     }
 
-    //이동 가능한 상태일 때, 실제 좌표를 이동한다
+    
     protected virtual void UpdateIdle()
     {
-        if (_dir != MoveDir.None)
-        {
-            Vector3Int destPos = CellPos;
-
-            switch (_dir)
-            {
-                case MoveDir.Up:
-                    destPos += Vector3Int.up;
-                    break;
-                case MoveDir.Down:
-                    destPos += Vector3Int.down;
-                    break;
-                case MoveDir.Left:
-                    destPos += Vector3Int.left;
-                    break;
-                case MoveDir.Right:
-                    destPos += Vector3Int.right;
-                    break;
-            }
-
-            State = CreatureState.Moving;
-
-            if (Managers.Map.CanGo(destPos))
-            {
-                //null일 경우 이동가능
-                if (Managers.Object.Find(destPos) == null)
-                {
-                    CellPos = destPos;
-
-                }
-            }
-        }
+       
     }
 
     //스르륵 이동하는 것을 처리
@@ -230,15 +216,50 @@ public class CreatureController : MonoBehaviour
         if (dist < _speed * Time.deltaTime)
         {
             transform.position = destPos;
-            //예외적으로 애니메이션을 직접 컨트롤
-            _state = CreatureState.Idle;
-            if (_dir == MoveDir.None)
-                UpdateAnimation();
+            MoveToNextPos();            
         }
         else
         {
             transform.position += moveDir.normalized * _speed * Time.deltaTime;
             State = CreatureState.Moving;
+        }
+    }
+
+    protected virtual void MoveToNextPos()
+    {
+        //멈춰 있을때 애니메이션 컨트롤 하는 부분 수정
+        if(_dir == MoveDir.None)
+        {
+            State = CreatureState.Idle;
+            return;
+        }
+
+        Vector3Int destPos = CellPos;
+
+        switch (_dir)
+        {
+            case MoveDir.Up:
+                destPos += Vector3Int.up;
+                break;
+            case MoveDir.Down:
+                destPos += Vector3Int.down;
+                break;
+            case MoveDir.Left:
+                destPos += Vector3Int.left;
+                break;
+            case MoveDir.Right:
+                destPos += Vector3Int.right;
+                break;
+        }
+
+        if (Managers.Map.CanGo(destPos))
+        {
+            //null일 경우 이동가능
+            if (Managers.Object.Find(destPos) == null)
+            {
+                CellPos = destPos;
+
+            }
         }
     }
 
@@ -248,6 +269,11 @@ public class CreatureController : MonoBehaviour
     }
 
     protected virtual void UpdateDead()
+    {
+
+    }
+
+    public virtual void OnDamaged()
     {
 
     }

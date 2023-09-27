@@ -364,6 +364,7 @@
 "Assets/Scripts/UI/UI_EventHandler.cs"
 "Assets/Scripts/Utils/Define.cs"
 "Assets/Scripts/Utils/Extension.cs"
+"Assets/Scripts/Utils/PriorityQueue.cs"
 "Assets/Scripts/Utils/Util.cs"
 -langversion:9.0
 

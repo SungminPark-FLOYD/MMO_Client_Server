@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Build.Content;
@@ -26,6 +27,17 @@ public class ObjectManager : MonoBehaviour
                 continue;
 
             if (cc.CellPos == cellPos)
+                return obj;
+        }
+
+        return null;
+    }
+
+    public GameObject Find(Func<GameObject, bool> condition)
+    {
+        foreach (GameObject obj in _objects)
+        {          
+            if (condition.Invoke(obj))
                 return obj;
         }
 
