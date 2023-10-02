@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8OtqufsZ5sLxOL+TYemW6WJCaD+w3GBUtYf7R/EKSlOLXRcW2xWxcVpHTjzdd94Gh+I9fQaDjdcLAGkhI7U/jg==",
+  "dgSpecHash": "rxK8Mspq9zDS1m70o0luNi/63N/PeGRaXThRRNzfIWFC3iMbxa2vEozRJdSu/SdrNjwUc3G4ZC+rseJEeu52Jg==",
   "success": true,
-  "projectFilePath": "C:\\Rookiss\\MMO_Game\\Server\\Server\\Server.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\MMO_Client_Server\\Server\\Server\\Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Seongmin Park\\.nuget\\packages\\google.protobuf\\3.24.3\\google.protobuf.3.24.3.nupkg.sha512",
+    "C:\\Users\\Seongmin Park\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Seongmin Park\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
   "logs": []
 }

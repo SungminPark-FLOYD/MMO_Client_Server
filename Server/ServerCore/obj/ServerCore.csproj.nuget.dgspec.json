@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Rookiss\\MMO_Game\\Server\\ServerCore\\ServerCore.csproj": {}
+    "D:\\MMO_Client_Server\\Server\\ServerCore\\ServerCore.csproj": {}
   },
   "projects": {
-    "C:\\Rookiss\\MMO_Game\\Server\\ServerCore\\ServerCore.csproj": {
+    "D:\\MMO_Client_Server\\Server\\ServerCore\\ServerCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Rookiss\\MMO_Game\\Server\\ServerCore\\ServerCore.csproj",
+        "projectUniqueName": "D:\\MMO_Client_Server\\Server\\ServerCore\\ServerCore.csproj",
         "projectName": "ServerCore",
-        "projectPath": "C:\\Rookiss\\MMO_Game\\Server\\ServerCore\\ServerCore.csproj",
-        "packagesPath": "C:\\Users\\rooki\\.nuget\\packages\\",
-        "outputPath": "C:\\Rookiss\\MMO_Game\\Server\\ServerCore\\obj\\",
+        "projectPath": "D:\\MMO_Client_Server\\Server\\ServerCore\\ServerCore.csproj",
+        "packagesPath": "C:\\Users\\Seongmin Park\\.nuget\\packages\\",
+        "outputPath": "D:\\MMO_Client_Server\\Server\\ServerCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\rooki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Seongmin Park\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -55,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     }
