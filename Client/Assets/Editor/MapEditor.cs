@@ -12,7 +12,7 @@ public class MapEditor : MonoBehaviour
 #if UNITY_EDITOR
 
     // % (Ctrl), # (Shift) & (Alt)
-    [MenuItem("Tool/GenerateMap")]
+    [MenuItem("Tools/GenerateMap")]
     private static void GenerateMap()
     {
         GameObject[] gameObjects = Resources.LoadAll<GameObject>("Prefabs/Map");

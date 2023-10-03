@@ -1,8 +1,8 @@
+using Google.Protobuf;
+using Google.Protobuf.Protocol;
 using ServerCore;
 using System;
 using System.Collections.Generic;
-using Google.Protobuf.Protocol;
-using Google.Protobuf;
 
 class PacketManager
 {
@@ -15,15 +15,14 @@ class PacketManager
 	{
 		Register();
 	}
-
+	
 	Dictionary<ushort, Action<PacketSession, ArraySegment<byte>, ushort>> _onRecv = new Dictionary<ushort, Action<PacketSession, ArraySegment<byte>, ushort>>();
 	Dictionary<ushort, Action<PacketSession, IMessage>> _handler = new Dictionary<ushort, Action<PacketSession, IMessage>>();
-
+		
 	public void Register()
-	{
-		_onRecv.Add((ushort)MsgId.CChat, MakePacket<C_Chat>);
-		_handler.Add((ushort)MsgId.CChat, PacketHandler.C_ChatHandler);
-
+	{		
+		_onRecv.Add((ushort)MsgId.CMove, MakePacket<C_Move>);
+		_handler.Add((ushort)MsgId.CMove, PacketHandler.C_MoveHandler);
 	}
 
 	public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)
