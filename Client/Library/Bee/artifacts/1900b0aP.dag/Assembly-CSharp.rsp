@@ -309,6 +309,7 @@
 "Assets/Scripts/Controllers/ArrowController.cs"
 "Assets/Scripts/Controllers/CreatureController.cs"
 "Assets/Scripts/Controllers/MonsterController.cs"
+"Assets/Scripts/Controllers/MyPlayerController.cs"
 "Assets/Scripts/Controllers/PlayerController.cs"
 "Assets/Scripts/Data/Data.Contents.cs"
 "Assets/Scripts/Managers/Contents/MapManager.cs"

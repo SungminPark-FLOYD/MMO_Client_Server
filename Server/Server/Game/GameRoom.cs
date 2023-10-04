@@ -79,5 +79,17 @@ namespace Server.Game
                 }
             }
         }
+
+        public void Broadcast(IMessage packet)
+        {
+            lock(_lock)
+            {
+                foreach(Player p in _players)
+                {
+                    p.Session.Send(packet);
+                }
+            }
+        }
+
     }
 }

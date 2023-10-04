@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - ArrowController
     - GameScene
     - MonsterController
+    - MyPlayerController
     - PlayerController
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
@@ -23,8 +24,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -77,6 +80,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 2660}
     - Class: 114
       Script: {instanceID: 4120}
+    - Class: 114
+      Script: {instanceID: 20472}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -546,12 +551,6 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ObjectManager
-  - hash:
-      serializedVersion: 2
       Hash: fd68d84f33fad85aac38f2739c0ee270
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -592,6 +591,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 90ab71dbad8d042002869776d5491f6c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MyPlayerController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Game.unity
