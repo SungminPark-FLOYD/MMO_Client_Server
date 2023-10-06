@@ -1,4 +1,6 @@
-﻿using ServerCore;
+﻿using Google.Protobuf.Protocol;
+using Google.Protobuf;
+using ServerCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +9,22 @@ using UnityEngine;
 
 public class ServerSession : PacketSession
 {
-	public override void OnConnected(EndPoint endPoint)
+    public void Send(IMessage packet)
+    {
+        string msgName = packet.Descriptor.Name.Replace("_", string.Empty);
+        //MsgId에 있는 값은 enum값이기 때문에 Parse를 활용해서 이름이랑 같은값을 찾아준다
+        MsgId msgId = (MsgId)Enum.Parse(typeof(MsgId), msgName);
+
+        ushort size = (ushort)packet.CalculateSize();
+        byte[] sendBuffer = new byte[size + 4];
+        Array.Copy(BitConverter.GetBytes((ushort)(size + 4)), 0, sendBuffer, 0, sizeof(ushort));
+        Array.Copy(BitConverter.GetBytes((ushort)msgId), 0, sendBuffer, 2, sizeof(ushort));
+        Array.Copy(packet.ToByteArray(), 0, sendBuffer, 4, size);
+
+        Send(new ArraySegment<byte>(sendBuffer));
+    }
+
+    public override void OnConnected(EndPoint endPoint)
 	{
 		Debug.Log($"OnConnected : {endPoint}");
 

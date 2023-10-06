@@ -24,10 +24,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -71,17 +69,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1514}
     - Class: 114
-      Script: {instanceID: 1702}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 2328}
+      Script: {instanceID: 1704}
     - Class: 114
-      Script: {instanceID: 2472}
+      Script: {instanceID: 2330}
     - Class: 114
-      Script: {instanceID: 2660}
+      Script: {instanceID: 2474}
     - Class: 114
-      Script: {instanceID: 4120}
+      Script: {instanceID: 2662}
     - Class: 114
-      Script: {instanceID: 20472}
+      Script: {instanceID: 4122}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -111,6 +109,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UIElements
     className: PanelRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 3cf156985df62fac63708d6bed3583bf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MyPlayerController
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -149,7 +153,7 @@ ScriptsOnlyBuild:
     className: LayoutElement
   - hash:
       serializedVersion: 2
-      Hash: 90ab71dbad8d042002869776d5491f6c
+      Hash: 3cf156985df62fac63708d6bed3583bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -185,7 +189,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 90ab71dbad8d042002869776d5491f6c
+      Hash: 3cf156985df62fac63708d6bed3583bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CreatureController
@@ -239,7 +243,7 @@ ScriptsOnlyBuild:
     className: UI_Scene
   - hash:
       serializedVersion: 2
-      Hash: 90ab71dbad8d042002869776d5491f6c
+      Hash: 3cf156985df62fac63708d6bed3583bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ArrowController
@@ -485,7 +489,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 708e53501dffbbcce18d40aaa9cf6a44
+      Hash: 5ab487eea7af63233ee7cc057c8acf23
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MonsterController
@@ -591,12 +595,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: 90ab71dbad8d042002869776d5491f6c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MyPlayerController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Game.unity
