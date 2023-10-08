@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf;
 using Google.Protobuf.Protocol;
 using Server;
+using Server.Game;
 using ServerCore;
 using System;
 using System.Collections.Generic;
@@ -15,22 +16,36 @@ class PacketHandler
 
         Console.WriteLine($"C_Move {movePacket.PosInfo.PosX}, {movePacket.PosInfo.PosY}");
 
-		if (clientSession.MyPlayer == null)
+		//멀티 쓰레드 환경에서 한번 체크해도 맞다는 보장이 없다
+		//한번 꺼내서 null체크를 안전하게 만든다
+		Player player = clientSession.MyPlayer;		
+		if (player == null)
 			return;
-		if (clientSession.MyPlayer.Room == null)
+
+		//마찬가지로 한번 정보를 가저온 다음 null체크를 해준다
+		GameRoom room = player.Room;
+		if (room == null)
 			return;
 
-		//검증
+		room.HandleMove(player, movePacket);		
+	}
 
-		//일단 서버에서 죄표 이동
-		PlayerInfo info = clientSession.MyPlayer.Info;
-		info.PosInfo = movePacket.PosInfo;
+	public static void C_SkillHandler(PacketSession session, IMessage packet)
+    {
+		C_Skill skillPacket = packet as C_Skill;
+		ClientSession clientSession = session as ClientSession;
 
-		//다른 플레이어에게 알려주기
-		S_Move resMovePacket = new S_Move();
-		resMovePacket.PlayerId = clientSession.MyPlayer.Info.PlayerId;
-		resMovePacket.PosInfo = movePacket.PosInfo;
+		//멀티 쓰레드 환경에서 한번 체크해도 맞다는 보장이 없다
+		//한번 꺼내서 null체크를 안전하게 만든다
+		Player player = clientSession.MyPlayer;
+		if (player == null)
+			return;
 
-		clientSession.MyPlayer.Room.Broadcast(resMovePacket);
+		//마찬가지로 한번 정보를 가저온 다음 null체크를 해준다
+		GameRoom room = player.Room;
+		if (room == null)
+			return;
+
+		room.HandleSkill(player, skillPacket);
 	}
 }
