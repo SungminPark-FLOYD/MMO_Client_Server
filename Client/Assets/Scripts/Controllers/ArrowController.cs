@@ -8,7 +8,7 @@ public class ArrowController : CreatureController
 {
     protected override void Init()
     {
-        switch (_lastDir)
+        switch (Dir)
         {
             case MoveDir.Up:
                 transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -33,51 +33,5 @@ public class ArrowController : CreatureController
     protected override void UpdateAnimation()
     {
 
-    }
-
-    protected override void MoveToNextPos()
-    {
-        Vector3Int destPos = CellPos;
-
-        switch (Dir)
-        {
-            case MoveDir.Up:
-                destPos += Vector3Int.up;
-                break;
-            case MoveDir.Down:
-                destPos += Vector3Int.down;
-                break;
-            case MoveDir.Left:
-                destPos += Vector3Int.left;
-                break;
-            case MoveDir.Right:
-                destPos += Vector3Int.right;
-                break;
-        }
-
-        if (Managers.Map.CanGo(destPos))
-        {
-            GameObject go = Managers.Object.Find(destPos);
-            //null일 경우 이동가능
-            if (go == null)
-            {
-                CellPos = destPos;
-
-            }
-            else
-            {
-                //피격시
-                CreatureController cc = go.GetComponent<CreatureController>();
-                if (cc != null)
-                    cc.OnDamaged();
-
-                Managers.Resource.Destroy(gameObject);
-            }
-        }
-        else
-        {
-            Managers.Resource.Destroy(gameObject);
-        }
-        
-    }
+    }    
 }

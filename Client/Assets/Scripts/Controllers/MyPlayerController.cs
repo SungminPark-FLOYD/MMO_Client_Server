@@ -6,6 +6,7 @@ using static Define;
 
 public class MyPlayerController : PlayerController
 {
+    bool _moveKeyPressed = false;
     protected override void Init()
     {
         base.Init();
@@ -32,7 +33,7 @@ public class MyPlayerController : PlayerController
     protected override void UpdateIdle()
     {
         //이동 상태로 갈지 확인
-        if (Dir != MoveDir.None)
+        if (_moveKeyPressed)
         {
             State = CreatureState.Moving;
             return;
@@ -44,7 +45,7 @@ public class MyPlayerController : PlayerController
             Debug.Log("Skill !");
 
             C_Skill skill = new C_Skill() { Info = new SkillInfo() };
-            skill.Info.SkillId = 1;
+            skill.Info.SkillId = 2;
             Managers.Network.Send(skill);
 
             _coSkillCooltime = StartCoroutine("CoInputCooltime", 0.2f);
@@ -62,6 +63,8 @@ public class MyPlayerController : PlayerController
     //키보드 입력
     void GetDirInput()
     {
+        _moveKeyPressed = true;
+
         if (Input.GetKey(KeyCode.W))
         {
             Dir = MoveDir.Up;
@@ -80,14 +83,14 @@ public class MyPlayerController : PlayerController
         }
         else
         {
-            Dir = MoveDir.None;
+            _moveKeyPressed = false;
         }
     }
 
     protected override void MoveToNextPos()
     {
         //멈춰 있을때 애니메이션 컨트롤 하는 부분 수정
-        if (Dir == MoveDir.None)
+        if (_moveKeyPressed == false)
         {
             State = CreatureState.Idle;
             CheckUpdatedFlag();
