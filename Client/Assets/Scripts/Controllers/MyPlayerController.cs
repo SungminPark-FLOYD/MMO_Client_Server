@@ -118,7 +118,7 @@ public class MyPlayerController : PlayerController
         if (Managers.Map.CanGo(destPos))
         {
             //null일 경우 이동가능
-            if (Managers.Object.Find(destPos) == null)
+            if (Managers.Object.FindCreature(destPos) == null)
             {
                 CellPos = destPos;
 
