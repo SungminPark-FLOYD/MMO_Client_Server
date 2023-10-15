@@ -14,7 +14,7 @@ class PacketHandler
 		C_Move movePacket = packet as C_Move;
 		ClientSession clientSession = session as ClientSession;
 
-        Console.WriteLine($"C_Move {movePacket.PosInfo.PosX}, {movePacket.PosInfo.PosY}");
+        //Console.WriteLine($"C_Move {movePacket.PosInfo.PosX}, {movePacket.PosInfo.PosY}");
 
 		//멀티 쓰레드 환경에서 한번 체크해도 맞다는 보장이 없다
 		//한번 꺼내서 null체크를 안전하게 만든다
@@ -27,7 +27,7 @@ class PacketHandler
 		if (room == null)
 			return;
 
-		room.HandleMove(player, movePacket);		
+		room.Push(room.HandleMove, player, movePacket);		
 	}
 
 	public static void C_SkillHandler(PacketSession session, IMessage packet)
@@ -46,6 +46,6 @@ class PacketHandler
 		if (room == null)
 			return;
 
-		room.HandleSkill(player, skillPacket);
+		room.Push(room.HandleSkill, player, skillPacket);
 	}
 }
