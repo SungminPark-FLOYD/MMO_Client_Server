@@ -13,3 +13,4 @@ D:\MMO_Client_Server\Server\PacketGenerator\obj\Release\PacketGenerator.csproj.C
 D:\MMO_Client_Server\Server\PacketGenerator\obj\Release\PacketGenerator.dll
 D:\MMO_Client_Server\Server\PacketGenerator\obj\Release\PacketGenerator.pdb
 D:\MMO_Client_Server\Server\PacketGenerator\obj\Release\PacketGenerator.genruntimeconfig.cache
+D:\MMO_Client_Server\Server\PacketGenerator\obj\Release\PacketGenerator.csproj.AssemblyReference.cache

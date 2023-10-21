@@ -13,12 +13,17 @@ using Server.Data;
 
 namespace Server
 {
-	public class ClientSession : PacketSession
+	public partial class ClientSession : PacketSession
 	{
+		public PlayerServerState ServerState { get; private set; } = PlayerServerState.ServerStateLogin;
+
 		public Player MyPlayer { get; set; }
 		public int SessionId { get; set; }
 
-		public void Send(IMessage packet)
+		
+
+        #region Network
+        public void Send(IMessage packet)
         {
 			string msgName = packet.Descriptor.Name.Replace("_", string.Empty);
 			//MsgId에 있는 값은 enum값이기 때문에 Parse를 활용해서 이름이랑 같은값을 찾아준다
@@ -37,27 +42,10 @@ namespace Server
 		{
 			Console.WriteLine($"OnConnected : {endPoint}");
 
-			// PROTO Test
-			MyPlayer = ObjectManager.Instance.Add<Player>();
             {
-				//정보 추가
-				MyPlayer.Info.Name = $"Player_{MyPlayer.Info.ObjectId}";
-				MyPlayer.Info.PosInfo.State = CreatureState.Idle;
-				MyPlayer.Info.PosInfo.MoveDir = MoveDir.Down;
-				MyPlayer.Info.PosInfo.PosX = 0;
-				MyPlayer.Info.PosInfo.PosY = 0;
-
-				StatInfo stat = null;
-				DataManager.StatDict.TryGetValue(1, out stat);
-				MyPlayer.Stat.MergeFrom(stat);
-
-				MyPlayer.Session = this;
+				S_Connected connectedPacket = new S_Connected();
+				Send(connectedPacket);
             }
-
-			GameRoom room = RoomManager.Instance.Find(1);
-			room.Push(room.EnterGame, MyPlayer);
-			
-
 		}
 
 		public override void OnRecvPacket(ArraySegment<byte> buffer)
@@ -79,5 +67,6 @@ namespace Server
 		{
 			//Console.WriteLine($"Transferred bytes: {numOfBytes}");
 		}
+		#endregion
 	}
 }
