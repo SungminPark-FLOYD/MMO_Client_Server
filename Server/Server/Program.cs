@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Google.Protobuf;
 using Google.Protobuf.Protocol;
 using Server.Data;
+using Server.DB;
 using Server.Game;
 using ServerCore;
 
@@ -51,8 +52,7 @@ namespace Server
 
 			while (true)
 			{
-				//JobTimer.Instance.Flush();
-				Thread.Sleep(100);
+				DbTransaction.Instance.Flush();
 			}
 		}
 	}

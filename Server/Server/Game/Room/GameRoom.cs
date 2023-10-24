@@ -135,7 +135,8 @@ namespace Server.Game
                 Player player = null;
                 if (_players.Remove(objectId, out player) == false)
                     return;
-               
+
+                player.OnLeaveGame();
                 Map.ApplyLeave(player);
                 //먼저 null로 밀어버리면 문제가 발생할 수 있음
                 //ApplyLeave 보다 뒤로 빼서 안전하게

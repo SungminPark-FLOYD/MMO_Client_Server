@@ -55,7 +55,7 @@ class PacketHandler
 	{
 		C_Login loginPacket = packet as C_Login;
 		ClientSession clientSession = session as ClientSession;
-		clientSession.HandlerLogin(loginPacket);
+		clientSession.HandleLogin(loginPacket);
 	}
 
 	public static void C_EnterGameHandler(PacketSession session, IMessage packet)
