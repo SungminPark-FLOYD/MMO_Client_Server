@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    UI_GameScene _sceneUI;
     protected override void Init()
     {
         base.Init();
@@ -14,6 +15,8 @@ public class GameScene : BaseScene
 
         //빌드시 화면 세팅
         Screen.SetResolution(640, 480, false);
+
+        _sceneUI = Managers.UI.ShowSceneUI<UI_GameScene>();
 
         //GameObject player = Managers.Resource.Instantiate("Creature/Player");
         //player.name = "Player";

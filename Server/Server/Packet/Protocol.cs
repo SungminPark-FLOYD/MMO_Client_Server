@@ -75,7 +75,7 @@ namespace Google.Protobuf.Protocol {
             "QXJtb3JUeXBlEhMKD0FSTU9SX1RZUEVfTk9ORRAAEhUKEUFSTU9SX1RZUEVf",
             "SEVMTUVUEAESFAoQQVJNT1JfVFlQRV9BUk1PUhACEhQKEEFSTU9SX1RZUEVf",
             "Qk9PVFMQAypGCg5Db25zdW1hYmxlVHlwZRIYChRDT05TVU1BQkxFX1RZUEVf",
-            "Tk9ORRAAEhoKFkNPTlNVTUFCTEVfVFlQRV9QT1RJT04QAUIbqgIYR29vZ2xl",
+            "Tk9ORRAAEhoKFkNPTlNVTUFCTEVfVFlQRV9QT1NJT04QAUIbqgIYR29vZ2xl",
             "LlByb3RvYnVmLlByb3RvY29sYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
@@ -184,7 +184,7 @@ namespace Google.Protobuf.Protocol {
 
   public enum ConsumableType {
     [pbr::OriginalName("CONSUMABLE_TYPE_NONE")] None = 0,
-    [pbr::OriginalName("CONSUMABLE_TYPE_POTION")] Potion = 1,
+    [pbr::OriginalName("CONSUMABLE_TYPE_POSION")] Posion = 1,
   }
 
   #endregion

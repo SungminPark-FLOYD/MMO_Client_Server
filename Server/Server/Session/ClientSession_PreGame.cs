@@ -119,9 +119,17 @@ namespace Server
 
 					foreach(ItemDb itemDb in items)
                     {
-						//인벤토리
-						ItemInfo info = new ItemInfo();
-						itemListPacket.Items.Add(info);
+						Item item = Item.MakeItem(itemDb);
+						if(item != null)
+                        {
+							MyPlayer.Inventory.Add(item);
+
+							//인벤토리
+							ItemInfo info = new ItemInfo();
+							info.MergeFrom(item.Info);
+							itemListPacket.Items.Add(info);
+						}
+						
 					}
 
 					//클라한테도 아이템 목록을 전달

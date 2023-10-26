@@ -79,7 +79,7 @@ enum ArmorType {
 
 enum ConsumableType {
   CONSUMABLE_TYPE_NONE = 0;
-  CONSUMABLE_TYPE_POTION = 1;
+  CONSUMABLE_TYPE_POSION = 1;
 }
 
 message S_EnterGame {
